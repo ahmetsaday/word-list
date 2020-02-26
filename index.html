@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Word List</title>
+        <style>
+            body {
+                background-color: #34495e;
+                color: white;
+            }
+            #container {
+                /*background-color: aqua;*/
+                width: 50%;
+                display: flow-root;
+                margin: auto;
+                margin-top: 180px;
+                margin-bottom: 520px;
+                text-align: center;
+            }
+            .word-group {
+                padding-top: 35px;
+                padding-bottom: 35px;
+            }
+            .eng-word {
+                display: inline-block;
+                width: 50%;
+            }
+            .tr-word {
+                width: 50%;
+                float: right;
+            }
+            .first-color {
+                background-color: #95a5a6;
+
+            }
+            .second-color {
+                background-color: teal;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body onload="setup()" >
+        <div id="container">
+
+            <!-- 
+                --- This an instance for structure of word group ---
+                <div class="word-group first-color">
+                <div class="eng-word">Word</div>
+                <div class="tr-word">Kelime</div>
+            </div> -->
+
+
+        </div>
+
+    <script>
+        function setup() {
+            var wordList = [
+                {eng: "acquaintance", tr: "tanıdık, bilgi"},
+                {eng: "grudge", tr: "kin"},
+                {eng: "consume", tr: "tüketme"},
+                {eng: "presume", tr: "varsaymak"},
+                {eng: "abortion", tr: "kürtaj"},
+                {eng: "contagious", tr: "bulaşıcı"},
+                {eng: "disorder", tr: "düzensizlik, kargaşa"},
+                {eng: "knee", tr: "diz"},
+                {eng: "wilderness", tr: "el değmemiş doğa"},
+                {eng: "reckless", tr: "umursamaz"},
+                {eng: "rescue", tr: "kurtarmak"},
+                {eng: "intervention", tr: "müdahale"},
+            ]
+            wordList.forEach((word, index) => {
+
+                var colorClass = ""
+
+                if (index % 2 == 0) {
+                    colorClass = '<div class="word-group first-color">'
+                } else {
+                    colorClass = '<div class="word-group second-color">'
+                } 
+                
+                var eng_word = '<div class="eng-word">'+word.eng+'</div>';
+                var tr_word = '<div class="tr-word">'+word.tr+'</div>'; 
+                var word_group = colorClass + eng_word + tr_word +'</div>'
+
+                $("#container").append(word_group)
+
+            });
+        }
+    </script>
+    </body>
+</html>
