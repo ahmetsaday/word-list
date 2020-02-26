@@ -6,6 +6,9 @@
                 background-color: #34495e;
                 color: white;
             }
+            p {
+                cursor: pointer;
+            }
             #container {
                 /*background-color: aqua;*/
                 width: 50%;
@@ -82,8 +85,8 @@
                     colorClass = '<div class="word-group second-color">'
                 } 
                 
-                var eng_word = '<div class="eng-word">'+word.eng+'</div>';
-                var tr_word = '<div class="tr-word">'+word.tr+'</div>'; 
+                var eng_word = '<div class="eng-word"><p>'+word.eng+'</p></div>';
+                var tr_word = '<div class="tr-word"><p>'+word.tr+'</p></div>'; 
                 var word_group = colorClass + eng_word + tr_word +'</div>'
 
                 $("#container").append(word_group)
