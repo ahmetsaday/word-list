@@ -25,7 +25,12 @@
             .eng-word {
                 display: inline-block;
                 width: 50%;
-                font-size: 30px;
+            }
+            .en-word-label {
+                font-size: 35px;
+            }
+            .word-example {
+                font-size: 18px;
             }
             .tr-word {
                 width: 50%;
@@ -59,21 +64,21 @@
     <script>
         function setup() {
             var wordList = [
-                {eng: "acquaintance", tr: "tanıdık, bilgi"},
-                {eng: "grudge", tr: "kin"},
-                {eng: "consume", tr: "tüketme"},
-                {eng: "presume", tr: "varsaymak"},
-                {eng: "abortion", tr: "kürtaj"},
-                {eng: "contagious", tr: "bulaşıcı"},
-                {eng: "disorder", tr: "düzensizlik, kargaşa"},
-                {eng: "knee", tr: "diz"},
-                {eng: "wilderness", tr: "el değmemiş doğa"},
-                {eng: "reckless", tr: "umursamaz"},
-                {eng: "rescue", tr: "kurtarmak"},
-                {eng: "intervention", tr: "müdahale"},
-                {eng: "convention", tr: "kongre"},
-                {eng: "precision", tr: "hassas"},
-                {eng: "redundant", tr: "gereğinden fazla"},
+                {eng: "acquaintance", tr: "tanıdık, bilgi", example:"he is my business acquaintance", description:"a person that you have met but do not know well"},
+                {eng: "grudge", tr: "kin", example:"I don't bear any grudge against you.", description:"a strong feeling of anger and dislike for a person who you feel has treated you badly, especially one that lasts for a long time"},
+                {eng: "consume", tr: "tüketme", example:"He was consumed with jealousy.", description:"to use fuel, energy, or time, especially in large amounts"},
+                {eng: "presume", tr: "varsaymak", example:"I don't wish to presume, but don't you think you should apologize to her?", description:"to believe something to be true because it is very likely, although you are not certain"},
+                {eng: "abortion", tr: "kürtaj", example:"Abortion is restricted in some American states", description:"the intentional ending of a pregnancy"},
+                {eng: "contagious", tr: "bulaşıcı", example:"The infection is highly contagious, so don't let anyone else use your towel.", description:"A contagious disease can be caught by touching someone who has the disease or a piece of infected clothing"},
+                {eng: "disorder", tr: "düzensizlik, kargaşa", example:"The whole office was in a state of disorder.", description:"a state of untidiness or lack of organization"},
+                {eng: "knee", tr: "diz", example:"The baby was crawling around on its hands and knees.", description:"the middle joint of the leg that allows the leg to bend"},
+                {eng: "wilderness", tr: "el değmemiş doğa", example:"a beautiful mountain wilderness", description:"an area of land that has not been used to grow crops or had towns and roads built on it, especially because it is difficult to live in as a result of its extremely cold or hot weather or bad earth"},
+                {eng: "reckless", tr: "umursamaz", example:"He was found guilty of reckless driving.", description:"doing something dangerous and not worrying about the risks and the possible results"},
+                {eng: "rescue", tr: "kurtarmak", example:"The government has refused to rescue the company from bankruptcy.", description:"to help someone or something out of a dangerous, harmful, or unpleasant situation"},
+                {eng: "intervention", tr: "müdahale", example:"Half the people questioned said they were opposed to military intervention in the civil war.", description:"the action of becoming intentionally involved in a difficult situation, in order to improve it or prevent it from getting worse"},
+                {eng: "convention", tr: "kongre", example:"the national Democratic convention", description:"a large formal meeting of people who do a particular job or have a similar interest, or a large meeting for a political party"},
+                {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
+                {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
             ]
             wordList.forEach((word, index) => {
 
@@ -85,8 +90,9 @@
                     colorClass = '<div class="word-group second-color">'
                 } 
                 
-                var eng_word = '<div class="eng-word"><p>'+word.eng+'</p></div>';
+                var eng_word = '<div class="eng-word"><label class="en-word-label">'+word.eng+'</label> <br><label class="word-example">'+ word.example +'</label> </div>';
                 var tr_word = '<div class="tr-word"><p>'+word.tr+'</p></div>'; 
+                
                 var word_group = colorClass + eng_word + tr_word +'</div>'
 
                 $("#container").append(word_group)
