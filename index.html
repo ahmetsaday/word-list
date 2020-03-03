@@ -1,10 +1,13 @@
 <html>
     <head>
         <title>Word List</title>
+        <!-- font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <style>
             body {
                 background-color: #34495e;
                 color: white;
+                font-family: 'Roboto', sans-serif;
             }
             p {
                 cursor: pointer;
@@ -18,87 +21,182 @@
                 margin-bottom: 520px;
                 text-align: center;
             }
-            .word-group {
-                padding-top: 35px;
-                padding-bottom: 35px;
-            }
-            .eng-word {
-                display: inline-block;
-                width: 50%;
-            }
-            .en-word-label {
-                font-size: 35px;
-            }
-            .word-example {
-                font-size: 18px;
-            }
-            .tr-word {
-                width: 50%;
-                float: right;
-                font-size: 30px;
-            }
-            .first-color {
-                background-color: #95a5a6;
+            .row{}
+            .left-area {width: 90%; float: left; height: 130px;}
+            .en-word {font-size: 35px; margin-top: 5%;}
+            .en-example {font-size: 18px;}
+            .right-area {width: 10%; float: right;}
+            .description {height: 65px; background-color: #192a56; cursor: pointer;}
+            .tr-word {height: 65px; background-color: #718093; cursor: pointer;}
+            .fa-2x {margin-top: 15px;}
+            .first-color {background-color: #95a5a6;}
+            .second-color {background-color: teal;}
 
-            }
-            .second-color {
-                background-color: teal;
-            }
+            .modal {background-color: cornsilk;}
+
         </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<style>
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 20%; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      background-color: teal;
+      margin: auto;
+      padding: 20px;
+      border-radius: 4px;
+      width: 35%;
+      text-align: center;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #show_word {
+        color: white;
+        font-size: 20px;
+    }
+    </style>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+        <!-- icon font-->
+        <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
+        
     </head>
-    <body onload="setup()" >
-        <div id="container">
+    <body>
+        <div id="container"></div>
 
-
-            <!-- 
-                --- This an instance for structure of word group ---
-                <div class="word-group first-color">
-                <div class="eng-word">Word</div>
-                <div class="tr-word">Kelime</div>
-            </div> -->
-
-
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close"></span>
+                <p id="show_word">Some text in the Modal..</p>
+            </div>
         </div>
 
-    <script>
-        function setup() {
-            var wordList = [
-                {eng: "acquaintance", tr: "tanıdık, bilgi", example:"he is my business acquaintance", description:"a person that you have met but do not know well"},
-                {eng: "grudge", tr: "kin", example:"I don't bear any grudge against you.", description:"a strong feeling of anger and dislike for a person who you feel has treated you badly, especially one that lasts for a long time"},
-                {eng: "consume", tr: "tüketme", example:"He was consumed with jealousy.", description:"to use fuel, energy, or time, especially in large amounts"},
-                {eng: "presume", tr: "varsaymak", example:"I don't wish to presume, but don't you think you should apologize to her?", description:"to believe something to be true because it is very likely, although you are not certain"},
-                {eng: "abortion", tr: "kürtaj", example:"Abortion is restricted in some American states", description:"the intentional ending of a pregnancy"},
-                {eng: "contagious", tr: "bulaşıcı", example:"The infection is highly contagious, so don't let anyone else use your towel.", description:"A contagious disease can be caught by touching someone who has the disease or a piece of infected clothing"},
-                {eng: "disorder", tr: "düzensizlik, kargaşa", example:"The whole office was in a state of disorder.", description:"a state of untidiness or lack of organization"},
-                {eng: "knee", tr: "diz", example:"The baby was crawling around on its hands and knees.", description:"the middle joint of the leg that allows the leg to bend"},
-                {eng: "wilderness", tr: "el değmemiş doğa", example:"a beautiful mountain wilderness", description:"an area of land that has not been used to grow crops or had towns and roads built on it, especially because it is difficult to live in as a result of its extremely cold or hot weather or bad earth"},
-                {eng: "reckless", tr: "umursamaz", example:"He was found guilty of reckless driving.", description:"doing something dangerous and not worrying about the risks and the possible results"},
-                {eng: "rescue", tr: "kurtarmak", example:"The government has refused to rescue the company from bankruptcy.", description:"to help someone or something out of a dangerous, harmful, or unpleasant situation"},
-                {eng: "intervention", tr: "müdahale", example:"Half the people questioned said they were opposed to military intervention in the civil war.", description:"the action of becoming intentionally involved in a difficult situation, in order to improve it or prevent it from getting worse"},
-                {eng: "convention", tr: "kongre", example:"the national Democratic convention", description:"a large formal meeting of people who do a particular job or have a similar interest, or a large meeting for a political party"},
-                {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
-                {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
-            ]
-            wordList.forEach((word, index) => {
 
-                var colorClass = ""
+<script>
+$(document).ready(function(){
 
-                if (index % 2 == 0) {
-                    colorClass = '<div class="word-group first-color">'
-                } else {
-                    colorClass = '<div class="word-group second-color">'
-                } 
-                
-                var eng_word = '<div class="eng-word"><label class="en-word-label">'+word.eng+'</label> <br><label class="word-example">'+ word.example +'</label> </div>';
-                var tr_word = '<div class="tr-word"><p>'+word.tr+'</p></div>'; 
-                
-                var word_group = colorClass + eng_word + tr_word +'</div>'
 
-                $("#container").append(word_group)
 
-            });
+    // create rows
+    wordList.forEach((word, index) => {
+        var colorClass = ""
+        if (index % 2 == 0) {
+            colorClass = 'first-color'
+        } else {
+            colorClass = 'second-color'
+        } 
+    var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
+    var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
+
+    var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
+    var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
+
+    var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
+    var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
+    var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
+
+    var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
+
+    var row = '<div class="row"> '+ left_area + right_area +'  </div>'
+
+    $("#container").append(row)
+
+    })
+        
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // click a description
+    $(".click_description").click(function(){
+        var itemId = this.id
+        var currentId = getOrderNumber(itemId)
+
+        modal.style.display = "block";
+        $("#show_word").text(wordList[currentId].description)
+    })
+    // click a tr word
+    $(".click_tr").click(function(){
+        var itemId = this.id
+        var currentId = getOrderNumber(itemId)
+
+        modal.style.display = "block";
+        $("#show_word").text(wordList[currentId].tr)
+
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
         }
-    </script>
+    }
+
+});
+
+
+var wordList = [
+    {eng: "acquaintance", tr: "tanıdık, bilgi", example:"he is my business acquaintance", description:"a person that you have met but do not know well"},
+    {eng: "grudge", tr: "kin", example:"I don't bear any grudge against you.", description:"a strong feeling of anger and dislike for a person who you feel has treated you badly, especially one that lasts for a long time"},
+    {eng: "consume", tr: "tüketme", example:"He was consumed with jealousy.", description:"to use fuel, energy, or time, especially in large amounts"},
+    {eng: "presume", tr: "varsaymak", example:"I don't wish to presume, but don't you think you should apologize to her?", description:"to believe something to be true because it is very likely, although you are not certain"},
+    {eng: "abortion", tr: "kürtaj", example:"Abortion is restricted in some American states", description:"the intentional ending of a pregnancy"},
+    {eng: "contagious", tr: "bulaşıcı", example:"The infection is highly contagious, so don't let anyone else use your towel.", description:"A contagious disease can be caught by touching someone who has the disease or a piece of infected clothing"},
+    {eng: "disorder", tr: "düzensizlik, kargaşa", example:"The whole office was in a state of disorder.", description:"a state of untidiness or lack of organization"},
+    {eng: "knee", tr: "diz", example:"The baby was crawling around on its hands and knees.", description:"the middle joint of the leg that allows the leg to bend"},
+    {eng: "wilderness", tr: "el değmemiş doğa", example:"a beautiful mountain wilderness", description:"an area of land that has not been used to grow crops or had towns and roads built on it, especially because it is difficult to live in as a result of its extremely cold or hot weather or bad earth"},
+    {eng: "reckless", tr: "umursamaz", example:"He was found guilty of reckless driving.", description:"doing something dangerous and not worrying about the risks and the possible results"},
+    {eng: "rescue", tr: "kurtarmak", example:"The government has refused to rescue the company from bankruptcy.", description:"to help someone or something out of a dangerous, harmful, or unpleasant situation"},
+    {eng: "intervention", tr: "müdahale", example:"Half the people questioned said they were opposed to military intervention in the civil war.", description:"the action of becoming intentionally involved in a difficult situation, in order to improve it or prevent it from getting worse"},
+    {eng: "convention", tr: "kongre", example:"the national Democratic convention", description:"a large formal meeting of people who do a particular job or have a similar interest, or a large meeting for a political party"},
+    {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
+    {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
+]
+
+function getOrderNumber(withText){
+    var txt = withText
+    var numb = txt.match(/\d/g);
+    numb = numb.join("");
+    console.log(numb)
+    return numb
+}
+
+</script>
+
     </body>
 </html>
