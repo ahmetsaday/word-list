@@ -130,7 +130,7 @@ $(document).ready(function(){
     var row = '<div class="row"> '+ left_area + right_area +'  </div>'
 
     $("#container").append(row)
-
+    //console.log(index + 1)
     })
         
     // Get the modal
@@ -171,6 +171,15 @@ $(document).ready(function(){
 
 
 var wordList = [
+    {eng: "prologue", tr: "önsöz", example:"The book contains 11 chapters, plus a prologue and epilogue, and an extensive suggested reading list.", description:"a part that comes at the beginning of a play, story, or long poem, often giving information about events that happened before the time when the play, story, or poem begins"},
+    {eng: "attraction", tr: "cazibe", example:"She felt an immediate physical attraction to him.", description:"the feeling of liking someone, especially sexually, because of the way they look or behave"},
+    {eng: "captivate", tr: "cezbetmek", example:"With her beauty and charm, she captivated film audiences everywhere.", description:"to hold the attention of someone by being extremely interesting, exciting, pleasant, or attractive"},
+    {eng: "hail", tr: "dolu", example:"There will be widespread showers of rain, hail and sleet.", description:"small, hard balls of ice that fall from the sky like rain"},
+    {eng: "descent", tr: "iniş", example:"These apes were beginning descent from the trees.", description:"family and relations"},
+    {eng: "hip", tr: "kalça", example:"This exercise is designed to trim your hips and stomach.", description:"the area below the waist and above the legs at either side of the body, or the joint that connects the leg to the upper part of the body"},
+    {eng: "slight", tr: "az miktarda", example:"She had a slight headache.", description:"small in amount or degree"},
+    {eng: "kin", tr: "akrabalık", example:"They’re not any kin of mine.", description:"family and relations"},
+    {eng: "ponder", tr: "kafa yormak", example:"She sat back for a minute to ponder her next move in the game.", description:"to think carefully about something, especially for a noticeable length of time"},
     {eng: "dawn", tr: "şafak", example:"We left as dawn was breaking ", description:"the period in the day when light from the sun begins to appear in the sky"},
     {eng: "bargain", tr: "anlaşma, düşük fiyat", example:"Unions bargain with employers for better rates of pay each year.", description:"an agreement between two people or groups in which each promises to do something in exchange for something else"},
     {eng: "groggy", tr: "halsiz", example:"I felt a little bit groggy for a couple of days after the operation.", description:"weak and unable to think clearly or walk correctly, usually because of tiredness or illness"},
@@ -208,12 +217,11 @@ var wordList = [
     {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
     {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
 ]
-
 function getOrderNumber(withText){
     var txt = withText
     var numb = txt.match(/\d/g);
     numb = numb.join("");
-    console.log(numb)
+    //console.log(numb)
     return numb
 }
 
