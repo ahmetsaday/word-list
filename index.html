@@ -115,74 +115,6 @@
 
 
 <script>
-        // create rows
-        function createRows(wordArray) {
-            wordArray.forEach((word, index) => {
-                var colorClass = ""
-                if (index % 2 == 0) {
-                    colorClass = 'first-color'
-                } else {
-                    colorClass = 'second-color'
-                } 
-                var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
-                var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
-
-                var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
-                var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
-
-                var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
-                var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
-                var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
-
-                var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
-
-                var row = '<div class="row"> '+ left_area + right_area +'  </div>'
-
-            $("#container").append(row)
-            //console.log(index + 1)
-            })
-        }
-
-$(document).ready(function(){
-
-    createRows(wordList)
-        
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // click a description
-    $(".click_description").click(function(){
-        var itemId = this.id
-        var currentId = getOrderNumber(itemId)
-
-        modal.style.display = "block";
-        $("#show_word").text(wordList[currentId].description)
-    })
-    // click a tr word
-    $(".click_tr").click(function(){
-        var itemId = this.id
-        var currentId = getOrderNumber(itemId)
-
-        modal.style.display = "block";
-        $("#show_word").text(wordList[currentId].tr)
-
-    });
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-        modal.style.display = "none";
-        }
-    }
-
-});
-
 var wordList = [
     {eng: "persuasion", tr: "ikna", example:"Invite discussion, and be open to correction and persuasion.", description:"the action of persuading someone or of being persuaded"},
     {eng: "bafflement", tr: "birşeyi tam anlatamama, açıklayamama", example:"The Bill Murray character in the film spends much of his time in Tokyo gazing in bafflement at the city through the windows of a skyscraper.", description:"the condition of being completely unable to understand or explain something"},
@@ -236,6 +168,74 @@ var wordList = [
     {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
     {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
 ]
+    
+    // create rows
+    function createRows(wordArray) {
+            wordArray.forEach((word, index) => {
+                var colorClass = ""
+                if (index % 2 == 0) {
+                    colorClass = 'first-color'
+                } else {
+                    colorClass = 'second-color'
+                } 
+                var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
+                var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
+
+                var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
+                var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
+
+                var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
+                var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
+                var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
+
+                var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
+
+                var row = '<div class="row"> '+ left_area + right_area +'  </div>'
+
+            $("#container").append(row)
+            //console.log(index + 1)
+            })
+
+
+            // click a description
+            $(".click_description").click(function(){
+            var itemId = this.id
+            var currentId = getOrderNumber(itemId)
+
+            modal.style.display = "block";
+            $("#show_word").text(wordList[currentId].description)
+            })
+            // click a tr word
+            $(".click_tr").click(function(){
+            var itemId = this.id
+            var currentId = getOrderNumber(itemId)
+
+            modal.style.display = "block";
+            $("#show_word").text(wordList[currentId].tr)
+            });
+
+
+        }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    $(document).ready(function(){
+        createRows(wordList)
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
 
 function getOrderNumber(withText){
     var txt = withText
