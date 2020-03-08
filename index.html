@@ -34,6 +34,16 @@
 
             .modal {background-color: cornsilk;}
 
+            #mix {
+                position: absolute;
+                right: 100px;
+                top: 30px;
+                cursor: pointer;
+            }
+            #mix i {
+                margin: 0px;
+            }
+
         </style>
 
 
@@ -90,8 +100,10 @@
         
     </head>
     <body>
+        <div id="mix">
+            <i class="fas fa-random fa-2x"></i>
+        </div>
         <div id="container"></div>
-
         <!-- The Modal -->
         <div id="myModal" class="modal">
             <!-- Modal content -->
@@ -103,35 +115,37 @@
 
 
 <script>
+        // create rows
+        function createRows(wordArray) {
+            wordArray.forEach((word, index) => {
+                var colorClass = ""
+                if (index % 2 == 0) {
+                    colorClass = 'first-color'
+                } else {
+                    colorClass = 'second-color'
+                } 
+                var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
+                var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
+
+                var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
+                var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
+
+                var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
+                var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
+                var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
+
+                var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
+
+                var row = '<div class="row"> '+ left_area + right_area +'  </div>'
+
+            $("#container").append(row)
+            //console.log(index + 1)
+            })
+        }
+
 $(document).ready(function(){
 
-
-
-    // create rows
-    wordList.forEach((word, index) => {
-        var colorClass = ""
-        if (index % 2 == 0) {
-            colorClass = 'first-color'
-        } else {
-            colorClass = 'second-color'
-        } 
-    var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
-    var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
-
-    var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
-    var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
-
-    var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
-    var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
-    var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
-
-    var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
-
-    var row = '<div class="row"> '+ left_area + right_area +'  </div>'
-
-    $("#container").append(row)
-    //console.log(index + 1)
-    })
+    createRows(wordList)
         
     // Get the modal
     var modal = document.getElementById("myModal");
@@ -168,7 +182,6 @@ $(document).ready(function(){
     }
 
 });
-
 
 var wordList = [
     {eng: "persuasion", tr: "ikna", example:"Invite discussion, and be open to correction and persuasion.", description:"the action of persuading someone or of being persuaded"},
@@ -223,12 +236,29 @@ var wordList = [
     {eng: "precision", tr: "hassas", example:"Great precision is required to align the mirrors accurately.", description:"the quality of being exact"},
     {eng: "redundant", tr: "gereğinden fazla", example:"In the sentence 'She is a single unmarried woman', the word 'unmarried' is redundant.", description:"unnecessary because it is more than is needed"},
 ]
+
 function getOrderNumber(withText){
     var txt = withText
     var numb = txt.match(/\d/g);
     numb = numb.join("");
-    //console.log(numb)
     return numb
+}
+
+// mix word list
+$("#mix").click(function(){
+    $("#container").empty();
+    createRows(shuffle(wordList))
+})
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
 }
 
 </script>
