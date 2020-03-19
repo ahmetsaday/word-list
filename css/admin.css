@@ -18,6 +18,23 @@ h2 {
     text-align: center;
 }
 
+#back {
+    position: fixed;
+    left: 100px;
+    top: 30px;
+    cursor: pointer;
+}
+#back:hover{
+    color: #718093;
+}
+#back a {
+    color: white;
+}
+#back i {
+    margin: 0px;
+}
+
+/*form*/
 #form-area {
     background-color: teal;
     padding-top: 40px;
