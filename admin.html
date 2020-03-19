@@ -15,6 +15,19 @@
     </head>
     <body>
 
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+
+
+        <!-- App Content -->
+
         <!-- total count of words -->
         <div id="back">
             <a href="index.html" >
@@ -29,16 +42,16 @@
                         <h2>New Word</h2>
                     </div>
                     <div class="field-group">
-                        <input type="text" placeholder="word..." />
+                        <input id="word-input" type="text" placeholder="word..." />
                     </div>
                     <div class="field-group">
-                        <input type="text" placeholder="example..."/>
+                        <input id="example-input" type="text" placeholder="example..."/>
                     </div>
                     <div class="field-group">
-                        <input type="text" placeholder="description..."/>
+                        <input id="description-input" type="text" placeholder="description..."/>
                     </div>
                     <div class="field-group">
-                        <input type="text" placeholder="meaining..."/>
+                        <input id="meaning-input" type="text" placeholder="meaining..."/>
                     </div>
                     <div class="">
                         <input id="submit" type="submit" value="Add"/>
@@ -47,5 +60,6 @@
                 </form>
             </div>
         </div>
+        <script src="js/admin.js"></script>
     </body>
 </html>
