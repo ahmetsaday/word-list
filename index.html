@@ -8,9 +8,9 @@
         <!-- font-->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <!-- Css style file -->
-        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
         <!-- Modal css style file -->
-        <link href="modal.css" rel="stylesheet" type="text/css" />
+        <link href="css/modal.css" rel="stylesheet" type="text/css" />
         
 
         <!-- JQuery lib -->
@@ -21,12 +21,30 @@
     </head>
     <body>
 
-        <!-- total count of words-->
+        <!-- firebase -->
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script src="js/init-firebase.js"></script>
+
+
+        <!-- App Content -->
+        <!-- total count of words -->
         <div id="count"></div>
-        <!-- mixing the word list-->
+        <!-- mixing the word list -->
         <div id="mix"><i class="fas fa-random fa-2x"></i></div>
-        <!-- gamification-->
+        <!-- gamification -->
         <div id="game"><i class="fas fa-gamepad fa-2x"></i></div>
+        <!-- admin link -->
+        <div id="admin">
+            <a href="admin.html" >
+                <i class="fas fa-user-cog fa-2x"></i>
+            </a>
+        </div>
         
         
         <!-- word list-->
@@ -42,8 +60,8 @@
         </div>
 
         <!-- Main js file -->
-        <script src="main.js"></script>
-        <script src="modal.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/modal.js"></script>
 
     </body>
 </html>

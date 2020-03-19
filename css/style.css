@@ -59,3 +59,18 @@ p {
 #game i {
     margin: 0px;
 }
+#admin {
+    position: absolute;
+    right: 100px;
+    bottom: 30px;
+    cursor: pointer;
+}
+#admin a:hover{
+    color: #718093;
+}
+#admin a {
+    color: white;
+}
+#admin i {
+    margin: 0px;
+}
