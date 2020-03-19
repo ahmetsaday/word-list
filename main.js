@@ -70,93 +70,89 @@ var wordList = [
     
     // create rows
     function createRows(wordArray) {
-            wordArray.forEach((word, index) => {
-                var colorClass = ""
-                if (index % 2 == 0) {
-                    colorClass = 'first-color'
-                } else {
-                    colorClass = 'second-color'
-                } 
-                var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
-                var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
-
-                var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
-                var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
-
-                var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
-                var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
-                var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
-
-                var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
-
-                var row = '<div class="row"> '+ left_area + right_area +'  </div>'
-
-                $("#container").append(row)
             
-                totalWords(wordArray)
-            })
+        wordArray.forEach((word, index) => {
+            
+            var colorClass = ""
+            if (index % 2 == 0) {
+                colorClass = 'first-color'
+            } else {
+                colorClass = 'second-color'
+            }
+             
+            var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
+            var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
 
-            // click a description
-            $(".click_description").click(function(){
-            var itemId = this.id
-            var currentId = getOrderNumber(itemId)
+            var tr_word = '<div id="word'+index+'" class="tr-word click_tr"> '+ question_icon + '</div>'
+            var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
 
-            modal.style.display = "block";
-            $("#show_word").text(wordList[currentId].description)
-            })
-            // click a tr word
-            $(".click_tr").click(function(){
-            var itemId = this.id
-            var currentId = getOrderNumber(itemId)
+            var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
+            var en_word = '<div class="en-word"><label>'+word.eng+'</label> </div>'
 
-            modal.style.display = "block";
-            $("#show_word").text(wordList[currentId].tr)
-            });
-        }
+            var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
+            var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
+            
+            var row = '<div class="row"> '+ left_area + right_area +'  </div>'
 
-        function totalWords(array){
-            //console.log(array.length)
-            var htmlItem = '<span style="font-size: 30px;" > '+ array.length +' </span> words'
-            $("#count").html(htmlItem)
-        }
-
-    $(document).ready(function(){
-        createRows(wordList)
-    });
-
-
-
-
-    
-   
-
-
-
-
-function getOrderNumber(withText){
-    var txt = withText
-    var numb = txt.match(/\d/g);
-    numb = numb.join("");
-    return numb
-}
-
-// mix word list
-$("#mix").click(function(){
-    $("#container").empty();
-    createRows(shuffle(wordList))
-})
-// gamification
-$("#game").click(function(){
-    alert("very soon")
-})
-
-function shuffle(a) {
-    var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
+            $("#container").append(row)
+            
+        })
     }
-    return a;
-}
+
+    //  description modal trigger
+    $('#container').on('click', '.click_description', function(){
+        var itemId = this.id
+        var currentId = getOrderNumber(itemId)
+
+        modal.style.display = "block";
+        $("#show_word").text(wordList[currentId].description)
+    })
+
+    // Turkish description modal trigger 
+    $('#container').on('click', '.click_tr', function(){
+        var itemId = this.id
+        var currentId = getOrderNumber(itemId)
+
+        modal.style.display = "block";
+        $("#show_word").text(wordList[currentId].tr)
+    })
+
+    // The number of words in wordList
+    window.onload = function(){
+        var htmlItem = '<span style="font-size: 30px;" > '+ this.wordList.length +' </span> words'
+        $("#count").html(htmlItem)
+    }
+
+    // call createRows
+    createRows(wordList)
+    
+    // order number method
+    function getOrderNumber(withText){
+        var txt = withText
+        var numb = txt.match(/\d/g);
+        numb = numb.join("");
+        return numb
+    }
+
+    // mix trigger for word list
+    $("#mix").click(function(){
+        $("#container").empty();
+        createRows(shuffle(wordList))
+    })
+
+    // gamification trigger
+    $("#game").click(function(){
+        alert("very soon")
+    })
+
+    // shuffle method for array items
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
