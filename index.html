@@ -44,6 +44,23 @@
                 margin: 0px;
             }
 
+            #count {
+                position: absolute;
+                left: 100px;
+                top: 30px;
+                cursor: pointer;
+            }
+
+            #game {
+                position: absolute;
+                right: 100px;
+                top: 100px;
+                cursor: pointer;
+            }
+            #game i {
+                margin: 0px;
+            }
+
         </style>
 
 
@@ -100,9 +117,16 @@
         
     </head>
     <body>
+        <div id="count">
+            <span style="font-size: 30px;" > 64 </span> words
+        </div>
         <div id="mix">
             <i class="fas fa-random fa-2x"></i>
         </div>
+        <div id="game">
+            <i class="fas fa-gamepad fa-2x"></i>
+        </div>
+        
         <div id="container"></div>
         <!-- The Modal -->
         <div id="myModal" class="modal">
@@ -116,6 +140,11 @@
 
 <script>
 var wordList = [
+    {eng: "hostility", tr: "düşmanlık", example:"They showed open (= obvious) hostility to/towards their new neighbours.", description:"an occasion when someone is unfriendly or shows that they do not like something"},
+    {eng: "whence", tr: "nereden", example:"If they misbehave, they're sent back from whence they came.", description:"(from) where"},
+    {eng: "complaint", tr: "şikayet", example:"We've received a complaint from one of our listeners about offensive language.", description:"a statement that something is wrong or not satisfactory"},
+    {eng: "fabulous", tr: "harika, çok iyi", example:"She looked absolutely fabulous in her dress.", description:"very good; excellent"},
+    {eng: "barrister", tr: "dava avukatı", example:"A man observed the barrister of the criminal who was waiting for the decision of the jury.", description:"a type of lawyer in the UK , Australia, and some other countries who can give specialized legal advice and can argue a case in both higher and lower courts."},
     {eng: "commute", tr: "iş ve ev arasında gidip gelmek", example:"It's exhausting commuting from Brighton to London every day.", description:"to make the same journey regularly between work and home"},
     {eng: "anxious", tr: "endişeli", example:"I saw my sister's anxious face at the window.", description:"worried and nervous"},
     {eng: "reputation", tr: "itibar, ün", example:"The company has a worldwide reputation for quality.", description:"the opinion that people in general have about someone or something, or how much respect or admiration someone or something receives, based on past behaviour or character"},
@@ -145,7 +174,7 @@ var wordList = [
     {eng: "dawn", tr: "şafak", example:"We left as dawn was breaking ", description:"the period in the day when light from the sun begins to appear in the sky"},
     {eng: "bargain", tr: "anlaşma, düşük fiyat", example:"Unions bargain with employers for better rates of pay each year.", description:"an agreement between two people or groups in which each promises to do something in exchange for something else"},
     {eng: "groggy", tr: "halsiz", example:"I felt a little bit groggy for a couple of days after the operation.", description:"weak and unable to think clearly or walk correctly, usually because of tiredness or illness"},
-    {eng: "occasion", tr: "", example:"We met on several occasions to discuss the issue.", description:"a particular time, especially when something happens or has happened"},
+    {eng: "occasion", tr: "bir şeyin gerçekleştiği zaman dilimi", example:"We met on several occasions to discuss the issue.", description:"a particular time, especially when something happens or has happened"},
     {eng: "reclaim", tr: "geri kazanım", example:"You'll be able to reclaim the tax on all equipment that you buy.", description:"to take back something that was yours"},
     {eng: "burden", tr: "yük", example:"I'm a burden to you.", description:"a heavy load that you carry"},
     {eng: "bizarre", tr: "tuhaf", example:"It's bizarrely disconnected from the reality of the situation.", description:"very strange and unusual"},
@@ -170,7 +199,6 @@ var wordList = [
     {eng: "abortion", tr: "kürtaj", example:"Abortion is restricted in some American states", description:"the intentional ending of a pregnancy"},
     {eng: "contagious", tr: "bulaşıcı", example:"The infection is highly contagious, so don't let anyone else use your towel.", description:"A contagious disease can be caught by touching someone who has the disease or a piece of infected clothing"},
     {eng: "disorder", tr: "düzensizlik, kargaşa", example:"The whole office was in a state of disorder.", description:"a state of untidiness or lack of organization"},
-    {eng: "knee", tr: "diz", example:"The baby was crawling around on its hands and knees.", description:"the middle joint of the leg that allows the leg to bend"},
     {eng: "wilderness", tr: "el değmemiş doğa", example:"a beautiful mountain wilderness", description:"an area of land that has not been used to grow crops or had towns and roads built on it, especially because it is difficult to live in as a result of its extremely cold or hot weather or bad earth"},
     {eng: "reckless", tr: "umursamaz", example:"He was found guilty of reckless driving.", description:"doing something dangerous and not worrying about the risks and the possible results"},
     {eng: "rescue", tr: "kurtarmak", example:"The government has refused to rescue the company from bankruptcy.", description:"to help someone or something out of a dangerous, harmful, or unpleasant situation"},
@@ -205,8 +233,9 @@ var wordList = [
 
             $("#container").append(row)
             //console.log(index + 1)
+            
+            totalWords(wordArray)
             })
-
 
             // click a description
             $(".click_description").click(function(){
@@ -224,8 +253,12 @@ var wordList = [
             modal.style.display = "block";
             $("#show_word").text(wordList[currentId].tr)
             });
+        }
 
-
+        function totalWords(array){
+            //console.log(array.length)
+            var htmlItem = '<span style="font-size: 30px;" > '+ array.length +' </span> words'
+            $("#count").html(htmlItem)
         }
 
     // Get the modal
@@ -259,6 +292,10 @@ function getOrderNumber(withText){
 $("#mix").click(function(){
     $("#container").empty();
     createRows(shuffle(wordList))
+})
+// gamification
+$("#game").click(function(){
+    alert("very soon")
 })
 
 function shuffle(a) {
