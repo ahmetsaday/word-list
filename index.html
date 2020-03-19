@@ -1,37 +1,49 @@
 <html>
     <head>
+        <!-- website name -->
         <title>Word List</title>
+        <!-- Charset Setting -->
         <meta charset="utf-8">
+        
         <!-- font-->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <!-- Css style file -->
         <link href="style.css" rel="stylesheet" type="text/css" />
+        <!-- Modal css style file -->
+        <link href="modal.css" rel="stylesheet" type="text/css" />
         
+
+        <!-- JQuery lib -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <!-- icon font-->
+        <!-- icon font lib-->
         <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
-        
+
     </head>
     <body>
+
+        <!-- total count of words-->
         <div id="count"></div>
-        <div id="mix">
-            <i class="fas fa-random fa-2x"></i>
-        </div>
-        <div id="game">
-            <i class="fas fa-gamepad fa-2x"></i>
-        </div>
+        <!-- mixing the word list-->
+        <div id="mix"><i class="fas fa-random fa-2x"></i></div>
+        <!-- gamification-->
+        <div id="game"><i class="fas fa-gamepad fa-2x"></i></div>
         
+        
+        <!-- word list-->
         <div id="container"></div>
-        <!-- The Modal -->
+        
+        
+        <!-- Modal -->
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close"></span>
-                <p id="show_word">Some text in the Modal..</p>
+                 <p id="show_word"></p>
             </div>
         </div>
 
-
-    <script src="main.js"></script>
+        <!-- Main js file -->
+        <script src="main.js"></script>
+        <script src="modal.js"></script>
 
     </body>
 </html>

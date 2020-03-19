@@ -91,10 +91,9 @@ var wordList = [
 
                 var row = '<div class="row"> '+ left_area + right_area +'  </div>'
 
-            $("#container").append(row)
-            //console.log(index + 1)
+                $("#container").append(row)
             
-            totalWords(wordArray)
+                totalWords(wordArray)
             })
 
             // click a description
@@ -121,25 +120,18 @@ var wordList = [
             $("#count").html(htmlItem)
         }
 
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
     $(document).ready(function(){
         createRows(wordList)
     });
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-        modal.style.display = "none";
-        }
-    }
+
+
+
+    
+   
+
+
+
 
 function getOrderNumber(withText){
     var txt = withText
