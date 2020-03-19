@@ -27,7 +27,7 @@ p {
 .second-color {background-color: teal;}
 
 #mix {
-    position: absolute;
+    position: fixed;
     right: 100px;
     top: 30px;
     cursor: pointer;
@@ -39,7 +39,7 @@ p {
     margin: 0px;
 }
 #count {
-    position: absolute;
+    position: fixed;
     left: 100px;
     top: 30px;
     cursor: pointer;
@@ -48,7 +48,7 @@ p {
     color: #718093;
 }
 #game {
-    position: absolute;
+    position: fixed;
     right: 100px;
     top: 100px;
     cursor: pointer;
@@ -60,7 +60,7 @@ p {
     margin: 0px;
 }
 #admin {
-    position: absolute;
+    position: fixed;
     right: 100px;
     bottom: 30px;
     cursor: pointer;
