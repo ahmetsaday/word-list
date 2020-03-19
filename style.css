@@ -1,0 +1,101 @@
+body {
+    background-color: #34495e;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+p {
+    cursor: pointer;
+}
+#container {
+    /*background-color: aqua;*/
+    width: 50%;
+    display: flow-root;
+    margin: auto;
+    margin-top: 180px;
+    margin-bottom: 520px;
+    text-align: center;
+}
+.row{}
+.left-area {width: 90%; float: left; height: 130px;}
+.en-word {font-size: 35px; margin-top: 5%;}
+.en-example {font-size: 18px;}
+.right-area {width: 10%; float: right;}
+.description {height: 65px; background-color: #192a56; cursor: pointer;}
+.tr-word {height: 65px; background-color: #718093; cursor: pointer;}
+.fa-2x {margin-top: 15px;}
+.first-color {background-color: #95a5a6;}
+.second-color {background-color: teal;}
+
+.modal {background-color: cornsilk;}
+
+#mix {
+    position: absolute;
+    right: 100px;
+    top: 30px;
+    cursor: pointer;
+}
+#mix i {
+    margin: 0px;
+}
+
+#count {
+    position: absolute;
+    left: 100px;
+    top: 30px;
+    cursor: pointer;
+}
+
+#game {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    cursor: pointer;
+}
+#game i {
+    margin: 0px;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 20%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: teal;
+    margin: auto;
+    padding: 20px;
+    border-radius: 4px;
+    width: 35%;
+    text-align: center;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #show_word {
+      color: white;
+      font-size: 20px;
+  }
