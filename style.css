@@ -34,22 +34,29 @@ p {
     top: 30px;
     cursor: pointer;
 }
+#mix:hover{
+    color: #718093;
+}
 #mix i {
     margin: 0px;
 }
-
 #count {
     position: absolute;
     left: 100px;
     top: 30px;
     cursor: pointer;
 }
-
+#count:hover{
+    color: #718093;
+}
 #game {
     position: absolute;
     right: 100px;
     top: 100px;
     cursor: pointer;
+}
+#game:hover{
+    color: #718093;
 }
 #game i {
     margin: 0px;
