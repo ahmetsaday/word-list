@@ -116,7 +116,14 @@ var wordList = [
         modal.style.display = "block";
         $("#show_word").text(wordList[currentId].tr)
     })
-
+        
+    $('body').on('click', '#count', function(){
+        modal.style.display = "block";
+        var content = '<iframe id="gif" src="https://giphy.com/embed/RS581ZSvMveaQ" width="540" frameBorder="0" class="giphy-embed" ></iframe>'
+        console.log(content)
+        $("#show_word").html(content)
+    })
+    
     // The number of words in wordList
     window.onload = function(){
         var htmlItem = '<span style="font-size: 30px;" > '+ this.wordList.length +' </span> words'
