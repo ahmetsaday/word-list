@@ -29,3 +29,31 @@ $("form").submit(function(e){
     console.error("Error adding document: ", error);
     });
 });
+
+// for (let i=0; i<wordList.length; i++) { 
+//     task(i); 
+//     } 
+    
+//     function task(i) { 
+//     setTimeout(function() { 
+        
+//         var word = array[i]
+//         db.collection("words").add({
+//             id: new Date().getTime(),
+//             word: word.eng,
+//             example: word.example,
+//             description: word.description,
+//             meaning: word.tr,
+//             correctScore: 0,
+//             wrongScore: 0,
+//             active: true
+//         })
+//         .then(function(docRef) {
+//             console.log("Document written with ID: ", docRef.id);
+//         })
+//         .catch(function(error) {
+//             console.error("Error adding document: ", error);
+//         });
+//     }, 100 * i); 
+//     } 
+    

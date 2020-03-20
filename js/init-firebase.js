@@ -20,3 +20,10 @@ var db = firebase.firestore();
 // .catch(function(error) {
 //     console.error("Error adding document: ", error);
 // });
+
+// db.collection("words").get().then((querySnapshot) => {
+//     querySnapshot.forEach((doc) => {
+//         // console.log(`${doc.id} => ${doc.data()}`);
+//         console.log(doc.data())
+//     });
+// });
