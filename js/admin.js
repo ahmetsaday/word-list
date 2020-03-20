@@ -13,20 +13,22 @@ $("form").submit(function(e){
         active: true
     }
     
-
     newWord.word = $("#word-input").val()
     newWord.example = $("#example-input").val()
     newWord.description = $("#description-input").val()
     newWord.meaning = $("#meaning-input").val()
 
-    console.log(newWord)
-
     db.collection("words").add(newWord)
     .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
+        //console.log("Document written with ID: ", docRef.id);
+        $('input').val("");
+        $('#submit').val("Add");
+        $("#info").html("The word has created successfully.")
     })
     .catch(function(error) {
-    console.error("Error adding document: ", error);
+        $('input').val("");
+        $('#submit').val("Add");
+        $("#info").html(error)
     });
 });
 
