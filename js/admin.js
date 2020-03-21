@@ -32,6 +32,21 @@ $("form").submit(function(e){
     });
 });
 
+// mix trigger for word list
+$("#logout").click(function(){
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        //console.log('User Logged Out!');
+        window.location = 'index.html'; //After successful logout, user will be redirected to index.html
+    }).catch(function(error) {
+        // An error happened.
+        console.log(error);
+    });
+})
+
+
+
+// Don't use 
 // for (let i=0; i<wordList.length; i++) { 
 //     task(i); 
 //     } 
@@ -59,3 +74,13 @@ $("form").submit(function(e){
 //     }, 100 * i); 
 //     } 
     
+
+
+//create user -- Don't use it 
+// firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     console.log(errorCode, errorMessage)
+//     // ...
+//   })

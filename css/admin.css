@@ -14,7 +14,6 @@ h2 {
     display: flow-root;
     margin: auto;
     margin-top: 120px;
-    margin-bottom: 520px;
     text-align: center;
 }
 
@@ -31,6 +30,19 @@ h2 {
     color: white;
 }
 #back i {
+    margin: 0px;
+}
+
+#logout {
+    position: fixed;
+    right: 100px;
+    top: 30px;
+    cursor: pointer;
+}
+#logout:hover{
+    color: #718093;
+}
+#logout i {
     margin: 0px;
 }
 
