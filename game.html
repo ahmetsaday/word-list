@@ -30,30 +30,36 @@
 
         <!-- App Content -->
 
-        <!-- total count of words -->
+        <!-- back button -->
         <div id="back">
             <a href="index.html" >
                 <i class="fas fa-arrow-left fa-2x"></i>
             </a>
         </div>
+        <!-- score -->
+        <div id="true">
+            <label><span>0&nbsp;</span> true</label>
+        </div>
+        <div id="false">
+            <label><span>0</span> false</label>
+        </div>
 
         <div id="container">
-            <div id="form-area">
-                <form id="addNewWordForm" >
-                    <div class="field-group">
-                        <h2>Game</h2>
+            <div id="game-card">
+                <div id="question-card">
+                    <p>some new word</p>
+                </div>
+                <div id="answer">
+                    <div id="first-answer">
+                        <p>first answer</p>
                     </div>
-                    <div class="field-group">
-                        <input id="email" type="email" placeholder="email" />
+                    <div id="timer">
+                        <div id="number">OR</div>
                     </div>
-                    <div class="field-group">
-                        <input id="password" type="password" placeholder="password"/>
+                    <div id="second-answer">
+                        <p>second answer</p>
                     </div>
-                    <div class="">
-                        <input id="submit" type="submit" value="Login" style="margin-bottom: 10px;"/>
-                    </div>
-                    <span id="info" ></span>
-                </form>
+                </div>
             </div>
         </div>
         <script src="js/game.js"></script>
