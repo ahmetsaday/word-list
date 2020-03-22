@@ -1,17 +1,11 @@
 <html>
     <head>
-        <!-- website name -->
-        <title>Word List</title>
-        <!-- Charset Setting -->
-        <meta charset="utf-8">
+        <title>word list</title>
         
         <!-- font-->
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <!-- Css style file -->
-        <link href="css/index.css" rel="stylesheet" type="text/css" />
-        <!-- Modal css style file -->
-        <link href="css/modal.css" rel="stylesheet" type="text/css" />
-        
+        <link href="css/game.css" rel="stylesheet" type="text/css" />
 
         <!-- JQuery lib -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -35,35 +29,33 @@
 
 
         <!-- App Content -->
-        
+
         <!-- total count of words -->
-        <div id="count"></div>
-        <!-- mixing the word list -->
-        <div id="mix"><i class="fas fa-random fa-2x"></i></div>
-        <!-- gamification -->
-        <div id="game"><i class="fas fa-gamepad fa-2x"></i></div>
-        <!-- admin link -->
-        <div id="admin">
-            <a href="login.html" >
-                <i class="fas fa-user-cog fa-2x"></i>
+        <div id="back">
+            <a href="index.html" >
+                <i class="fas fa-arrow-left fa-2x"></i>
             </a>
         </div>
-        
-        <!-- word list-->
-        <div id="container"></div>
-        
-        
-        <!-- Modal -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                 <p id="show_word"></p>
+
+        <div id="container">
+            <div id="form-area">
+                <form id="addNewWordForm" >
+                    <div class="field-group">
+                        <h2>Game</h2>
+                    </div>
+                    <div class="field-group">
+                        <input id="email" type="email" placeholder="email" />
+                    </div>
+                    <div class="field-group">
+                        <input id="password" type="password" placeholder="password"/>
+                    </div>
+                    <div class="">
+                        <input id="submit" type="submit" value="Login" style="margin-bottom: 10px;"/>
+                    </div>
+                    <span id="info" ></span>
+                </form>
             </div>
         </div>
-
-        <!-- Main js file -->
-        <script src="js/index.js"></script>
-        <script src="js/modal.js"></script>
-<!-- <iframe src="https://giphy.com/embed/KQBB3QhDw46Uo" width="480"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+        <script src="js/game.js"></script>
     </body>
 </html>

@@ -95,7 +95,7 @@ $("#mix").click(function(){
 
 // gamification trigger
 $("#game").click(function(){
-    alert("very soon")
+    window.location = 'game.html';
 })
 
 // shuffle method for array items

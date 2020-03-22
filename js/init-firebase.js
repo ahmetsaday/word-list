@@ -6,10 +6,12 @@ var firebaseConfig = {
     projectId: "word-list-faf57",
     storageBucket: "word-list-faf57.appspot.com",
     messagingSenderId: "380976787587",
-    appId: "1:380976787587:web:549fe18b2486673a3cabb6"
+    appId: "1:380976787587:web:549fe18b2486673a3cabb6",
+    measurementId: "G-07E8B39RNJ"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 var db = firebase.firestore();
 
