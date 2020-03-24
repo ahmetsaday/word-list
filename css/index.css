@@ -20,8 +20,8 @@ p {
 .en-word {font-size: 35px; margin-top: 5%;}
 .en-example {font-size: 18px;}
 .right-area {width: 10%; float: right;}
-.description {height: 65px; background-color: #192a56; cursor: pointer;}
-.tr-word {height: 65px; background-color: #718093; cursor: pointer;}
+.description {min-height: 65px; background-color: #192a56; cursor: pointer;}
+.tr-word {min-height: 65px; background-color: #718093; cursor: pointer;}
 .fa-2x {margin-top: 15px;}
 .first-color {background-color: #95a5a6;}
 .second-color {background-color: teal;}
@@ -81,16 +81,13 @@ p {
 @media screen and (max-width: 992px) {
     #container {
         width: 80%;
-        
     }
     .en-word {
         font-size: 50px; margin-top: 5%;
     }
     .en-example {
         font-size: 24px;
-    }
-    body{
-        background-color: red;
+        margin-bottom: 5%;
     }
   }
   
