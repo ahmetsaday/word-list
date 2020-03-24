@@ -81,6 +81,7 @@ p {
 @media screen and (max-width: 992px) {
     #container {
         width: 80%;
+        background-color: red;
     }
     .en-word {
         font-size: 50px; margin-top: 5%;
