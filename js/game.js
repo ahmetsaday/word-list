@@ -51,6 +51,8 @@ function getRandomQuiz(){
           break;
         default:      
     }
+    wordList.splice(randomNumberForQuestion, 1)
+    console.log(wordList.length)
 }
 
 // check answer

@@ -16,7 +16,7 @@ p {
     text-align: center;
 }
 .row{}
-.left-area {width: 90%; float: left; height: 130px;}
+.left-area {width: 90%; float: left; min-height: 130px;}
 .en-word {font-size: 35px; margin-top: 5%;}
 .en-example {font-size: 18px;}
 .right-area {width: 10%; float: right;}
@@ -81,6 +81,12 @@ p {
 @media screen and (max-width: 992px) {
     #container {
         width: 80%;
+    }
+    .en-word {
+        font-size: 50px; margin-top: 5%;
+    }
+    .en-example {
+        font-size: 24px;
     }
   }
   
