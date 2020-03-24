@@ -77,3 +77,10 @@ p {
 #gif {
     pointer-events:none;
 }
+/* Responsive */
+@media screen and (max-width: 992px) {
+    #container {
+        width: 80%;
+    }
+  }
+  
