@@ -98,6 +98,11 @@ $("#game").click(function(){
     window.location = 'game.html';
 })
 
+// swipe game trigger
+$("#swipe").click(function(){
+    window.location = 'swipe-game.html';
+})
+
 // shuffle method for array items
 function shuffle(a) {
     var j, x, i;
