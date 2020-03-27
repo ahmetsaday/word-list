@@ -12,14 +12,10 @@ body {
 }
 .demo {
     position: absolute;
-    bottom: 10%;
-    /* top: 10%; */
+    bottom: 7%;
     width: 100%;
-    /* padding-top: 10px; */
-    /* padding-bottom: 10px; */
-    height: 50%;
+    height: 65%;
     background: #63bdf7;
-    /* margin-bottom: 10%;*/
 }
 .demo__header {
     height: 6rem;
@@ -36,8 +32,8 @@ body {
 .demo__card-cont {
     position: relative;
     height: 80%;
-    width: 40%;
-    margin-left: 30%;
+    width: 60%;
+    margin-left: 20%;
     margin-top: 10%;
 }
 .demo__card {
