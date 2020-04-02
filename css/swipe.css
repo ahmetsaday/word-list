@@ -3,8 +3,10 @@
     margin: 0;
     padding: 0;
 }
-html, body {
-    font-size: 62.5%;
+.top {
+    font-size: 48px;
+    color: white;
+    background-color: tomato;
 }
 body {
     background: teal;
@@ -17,15 +19,10 @@ body {
     height: 65%;
     background: teal;
 }
-.demo__header {
-    height: 6rem;
-    background: #002942;
-}
 .demo__content {
     overflow: hidden;
     position: relative;
     height: 100%;
-    /* margin-left: 35%; */
     width: 100%;
     user-select: none;
 }
@@ -72,11 +69,11 @@ body {
 .demo__card__top.purple {
     background: #7132b9;
 }
-.demo__card__top.blue {
-    background: #248cb6;
+.demo__card__top.second-color {
+    background: #718093;
 }
-.demo__card__top.indigo {
-    background: #303f9f;
+.demo__card__top.first-color {
+    background: #192a56;
 }
 .demo__card__top.cyan {
     background: #26c6da;
