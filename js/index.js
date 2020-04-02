@@ -8,7 +8,9 @@ function createRows(wordArray) {
         } else {
             colorClass = 'second-color'
         }
-            
+    
+        var voiceButton =    '<div class="voice-button" onclick="getVoice('+index+');"><i class="far fa-play-circle"></i></div>'
+
         var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
         var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
 
@@ -16,7 +18,7 @@ function createRows(wordArray) {
         var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
 
         var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
-        var en_word = '<div class="en-word"><label>'+word.word+'</label> </div>'
+        var en_word = '<div class="en-word"><label>'+word.word+'</label> '+ voiceButton +'  </div>'
 
         var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
         var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
@@ -26,6 +28,14 @@ function createRows(wordArray) {
         $("#container").append(row)
         
     })
+}
+
+// get clicked word
+function getVoice(index){
+    var tappedWord = wordArray[index].word
+
+    responsiveVoice.setDefaultVoice("US English Male");
+    responsiveVoice.speak(tappedWord)
 }
 
 //  description modal trigger

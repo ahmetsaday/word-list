@@ -89,6 +89,15 @@ p {
 #gif {
     pointer-events:none;
 }
+
+.voice-button{
+    width: 5%;
+    float: left;
+    position: absolute;
+    margin-top: -4%;
+}
+
+
 /* Responsive */
 @media screen and (max-width: 992px) {
     #container {
@@ -100,6 +109,13 @@ p {
     .en-example {
         font-size: 24px;
         margin-bottom: 5%;
+    }
+    .voice-button{
+        width: 5%;
+        float: left;
+        position: absolute;
+        margin-top: -7%;
+        margin-left: 2%;
     }
   }
   
