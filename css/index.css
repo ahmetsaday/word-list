@@ -95,6 +95,7 @@ p {
     float: left;
     position: absolute;
     margin-top: -4%;
+    cursor: pointer;
 }
 
 
@@ -117,5 +118,21 @@ p {
         margin-top: -7%;
         margin-left: 2%;
     }
+    #count {
+        left: 70px;
+    }
+    #mix {
+        right: 70px;
+    }
+    #game {
+        right: 70px;
+    }
+    #swipe {
+        right: 70px;
+    }
+    #admin {
+        right: 70px;
+    }
+    
   }
   
