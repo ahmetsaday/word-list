@@ -59,14 +59,14 @@ $('#container').on('click', '.click_tr', function(){
 // gif
 $('body').on('click', '#count', function(){
     modal.style.display = "block";
-    var content = '<iframe id="gif" src="https://giphy.com/embed/RS581ZSvMveaQ" width="540" frameBorder="0" class="giphy-embed" ></iframe>'
+    var content = '<iframe id="gif" src="https://giphy.com/embed/RS581ZSvMveaQ" width="80%" frameBorder="0" class="giphy-embed" ></iframe>'
     console.log(content)
     $("#show_word").html(content)
 })
 
 // The number of words in wordList
 function setTotalWordsCount(length){
-    var htmlItem = '<span style="font-size: 30px;" > '+ length +' </span> words'
+    var htmlItem = '<span style="font-size: 25px;" >'+ length +' </span>words'
     $("#count").html(htmlItem)
 }
 
@@ -99,6 +99,12 @@ function getOrderNumber(withText){
 
 // mix trigger for word list
 $("#mix").click(function(){
+    $("#container").empty();
+    createRows(shuffle(wordArray))
+})
+
+// mix trigger for word list
+$("#menu-mix").click(function(){
     $("#container").empty();
     createRows(shuffle(wordArray))
 })
