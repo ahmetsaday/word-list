@@ -21,7 +21,7 @@
         <script src="https://kit.fontawesome.com/d2b8e1d5c1.js" crossorigin="anonymous"></script>
 
     </head>
-    <body>
+    <body onload="setup()">
 
         <!-- firebase -->
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -47,12 +47,16 @@
         <!-- swipe game -->
         <div id="swipe"><i class="fas fa-window-restore fa-2x"></i></div>
         <!-- admin link -->
-        <div id="admin">
-            <a href="login.html" >
-                <i class="fas fa-user-cog fa-2x"></i>
-            </a>
-        </div>
+        <div id="admin"><a href="login.html" ><i class="fas fa-user-cog"></i></a></div>
         
+        <!-- Pagination -->
+        <div id="page-area">
+            
+            <ul class="page-area-ul">
+
+            </ul>
+
+        </div>
         <!-- word list-->
         <div id="container">
             <!-- <h1>Saday is keep learning the new 1000 words</h1> -->

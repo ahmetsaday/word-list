@@ -6,12 +6,56 @@ body {
 p {
     cursor: pointer;
 }
-#container {
-    /*background-color: aqua;*/
+a, u {
+    text-decoration: none;
+}
+
+
+
+#page-area {
     width: 50%;
     display: flow-root;
     margin: auto;
     margin-top: 180px;
+}
+.page-active {
+    background-color: teal;
+}
+.page-area-ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+}
+.page-area-ul-li {
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    float: left;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.page-area-ul-li:hover {
+    background-color: #95a5a6;
+}
+
+.page-area-ul-li-a {
+    color: white;
+}
+.page-area-ul-li:hover a{
+    color: teal;
+}
+
+
+
+
+
+#container {
+    width: 50%;
+    display: flow-root;
+    margin: auto;
     margin-bottom: 520px;
     text-align: center;
 }

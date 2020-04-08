@@ -1,3 +1,38 @@
+//-- Global Variables --//
+var wordArray = []
+var totalPageNumber = 0
+
+//-- Setup --//
+function setup(){
+    getData()
+}
+
+//-- Business Logic Functions --//
+
+// Get Data from Firestore
+function getData(){
+    db.collection("words").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // console.log(`${doc.id} => ${doc.data()}`);
+            wordArray.push(doc.data())
+        });
+    
+        // Calculate the total page number
+        if (wordArray.length > 0) {
+            totalPageNumber = Math.ceil(wordArray.length / 100)
+        }
+    
+        // adjust wordArray
+        wordArray.sort(function(a,b){
+            return a.id - b.id
+        }).reverse()
+
+        // call related methoeds
+        createPagination(totalPageNumber)
+        createRows(wordArray)
+        setTotalWordsCount(wordArray.length)
+    });
+}
 // create rows
 function createRows(wordArray) {
     wordArray.forEach((word, index) => {
@@ -29,14 +64,37 @@ function createRows(wordArray) {
         
     })
 }
+// create pagination
+function createPagination(totalPageNumber){
+    
+    // var aTag = '<a class="page-area-ul-li-a">1</a>'
+    // var liTag = '<li class="page-area-ul-li">' + aTag + '</li>'
 
-// get clicked word
-function getVoice(index){
-    var tappedWord = wordArray[index].word
+    
 
-    responsiveVoice.setDefaultVoice("US English Male");
-    responsiveVoice.speak(tappedWord)
+    for (i = 1; i <= totalPageNumber; i++) {
+        var aTag = '<a class="page-area-ul-li-a">'+ i +'</a>'
+        var liTag = ''
+        if (i == 1){
+            liTag = '<li id='+'page'+ i +' class="page-area-ul-li page-active">' + aTag + '</li>'
+        } else {
+            liTag = '<li id='+'page'+ i +' class="page-area-ul-li">' + aTag + '</li>'
+        }
+
+        $(".page-area-ul").append(liTag)
+    }
+
+
+    
 }
+// The number of words in wordList
+function setTotalWordsCount(length){
+    var htmlItem = '<span style="font-size: 25px;" >'+ length +' </span>words'
+    $("#count").html(htmlItem)
+}
+
+
+//-- Trigger Funtions --//
 
 //  description modal trigger
 $('#container').on('click', '.click_description', function(){
@@ -46,7 +104,6 @@ $('#container').on('click', '.click_description', function(){
     modal.style.display = "block";
     $("#show_word").text(wordArray[currentId].description)
 })
-
 // Turkish description modal trigger 
 $('#container').on('click', '.click_tr', function(){
     var itemId = this.id
@@ -55,7 +112,6 @@ $('#container').on('click', '.click_tr', function(){
     modal.style.display = "block";
     $("#show_word").text(wordArray[currentId].meaning)
 })
-
 // gif
 $('body').on('click', '#count', function(){
     modal.style.display = "block";
@@ -63,31 +119,27 @@ $('body').on('click', '#count', function(){
     console.log(content)
     $("#show_word").html(content)
 })
+// mix trigger for word list
+$("#mix").click(function(){
+    $("#container").empty();
+    createRows(shuffle(wordArray))
+})
+// mix trigger for mobile word list
+$("#menu-mix").click(function(){
+    $("#container").empty();
+    createRows(shuffle(wordArray))
+})
+// gamification trigger
+$("#game").click(function(){
+    window.location = 'game.html';
+})
+// swipe game trigger
+$("#swipe").click(function(){
+    window.location = 'swipe-game.html';
+})
 
-// The number of words in wordList
-function setTotalWordsCount(length){
-    var htmlItem = '<span style="font-size: 25px;" >'+ length +' </span>words'
-    $("#count").html(htmlItem)
-}
 
-// get data
-var wordArray = []
-db.collection("words").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        // console.log(`${doc.id} => ${doc.data()}`);
-        wordArray.push(doc.data())
-    });
-
-    wordArray.sort(function(a,b){
-        return a.id - b.id
-    }).reverse()
-    // call related methoeds
-    createRows(wordArray)
-    setTotalWordsCount(wordArray.length)
-});
-
-// call createRows
-createRows(wordArray)
+//-- Helper Functions --//
 
 // order number method
 function getOrderNumber(withText){
@@ -96,29 +148,6 @@ function getOrderNumber(withText){
     numb = numb.join("");
     return numb
 }
-
-// mix trigger for word list
-$("#mix").click(function(){
-    $("#container").empty();
-    createRows(shuffle(wordArray))
-})
-
-// mix trigger for word list
-$("#menu-mix").click(function(){
-    $("#container").empty();
-    createRows(shuffle(wordArray))
-})
-
-// gamification trigger
-$("#game").click(function(){
-    window.location = 'game.html';
-})
-
-// swipe game trigger
-$("#swipe").click(function(){
-    window.location = 'swipe-game.html';
-})
-
 // shuffle method for array items
 function shuffle(a) {
     var j, x, i;
@@ -129,4 +158,11 @@ function shuffle(a) {
         a[j] = x;
     }
     return a;
+}
+// get clicked word
+function getVoice(index){
+    var tappedWord = wordArray[index].word
+
+    responsiveVoice.setDefaultVoice("US English Male");
+    responsiveVoice.speak(tappedWord)
 }
