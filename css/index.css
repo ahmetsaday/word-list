@@ -102,14 +102,17 @@ p {
 /* Responsive */
 @media screen and (max-width: 992px) {
     #container {
-        width: 80%;
+        width: 100%;
     }
     .en-word {
         font-size: 50px; margin-top: 5%;
     }
     .en-example {
         font-size: 24px;
-        margin-bottom: 5%;
+        margin-bottom: 3%;
+        margin-top: 1%;
+        width: 80%;
+        margin-left: 10%;
     }
     .voice-button{
         width: 5%;
@@ -119,7 +122,9 @@ p {
         margin-left: 2%;
     }
     #count {
-        left: 5px;
+        left: 44%;
+        top: 110px;
+        position: absolute;
     }
     #mix {
         display: none;
