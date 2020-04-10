@@ -29,12 +29,13 @@ function getData(){
 
         // call related methoeds
         createPagination(totalPageNumber)
-        createRows(wordArray)
+        createRows(wordArray.slice(0,100))
         setTotalWordsCount(wordArray.length)
     });
 }
 // create rows
 function createRows(wordArray) {
+    console.log(wordArray.length)
     wordArray.forEach((word, index) => {
         
         var colorClass = ""
@@ -67,18 +68,14 @@ function createRows(wordArray) {
 // create pagination
 function createPagination(totalPageNumber){
     
-    // var aTag = '<a class="page-area-ul-li-a">1</a>'
-    // var liTag = '<li class="page-area-ul-li">' + aTag + '</li>'
-
-    
 
     for (i = 1; i <= totalPageNumber; i++) {
         var aTag = '<a class="page-area-ul-li-a">'+ i +'</a>'
         var liTag = ''
         if (i == 1){
-            liTag = '<li id='+'page'+ i +' class="page-area-ul-li page-active">' + aTag + '</li>'
+            liTag = '<li id='+'page'+ i +' class="page-item page-area-ul-li page-active">' + aTag + '</li>'
         } else {
-            liTag = '<li id='+'page'+ i +' class="page-area-ul-li">' + aTag + '</li>'
+            liTag = '<li id='+'page'+ i +' class="page-item page-area-ul-li">' + aTag + '</li>'
         }
 
         $(".page-area-ul").append(liTag)
@@ -137,6 +134,29 @@ $("#game").click(function(){
 $("#swipe").click(function(){
     window.location = 'swipe-game.html';
 })
+
+
+
+
+// page trigger
+$('body').on('click', '.page-item', function(){
+    var itemId = this.id
+    var currentId = getOrderNumber(itemId)
+
+    $(this).addClass("page-active");
+    $(".page-area-ul-li").not(this).removeClass("page-active");
+
+    var currentWordArray = wordArray
+    if(currentId == 1){
+        currentWordArray = wordArray.slice(0,100)
+    } else {
+        currentWordArray = wordArray.slice((currentId-1)*100, currentId * 100)
+    }
+    $("#container").empty();
+    createRows(currentWordArray)
+})
+
+
 
 
 //-- Helper Functions --//
