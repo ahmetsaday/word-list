@@ -9,9 +9,6 @@ p {
 a, u {
     text-decoration: none;
 }
-
-
-
 #page-area {
     width: 50%;
     display: flow-root;
@@ -47,11 +44,6 @@ a, u {
 .page-area-ul-li:hover a{
     color: teal;
 }
-
-
-
-
-
 #container {
     width: 50%;
     display: flow-root;
@@ -145,6 +137,19 @@ a, u {
 
 /* Responsive */
 @media screen and (max-width: 992px) {
+    #page-area {
+        width: 100%;
+    }
+    .page-area-ul-li-a {
+        font-size: 52px;
+    }
+    .page-area-ul-li {
+        margin-left: 2%;
+        margin-right: 2%;
+        padding-left: 3%;
+        padding-right: 3%;
+        margin-bottom: 2%;
+    }
     #container {
         width: 100%;
     }

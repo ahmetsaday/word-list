@@ -26,3 +26,21 @@
       color: white;
       font-size: 20px;
   }
+
+  /* Responsive */
+@media screen and (max-width: 992px) {
+
+  .modal {
+    padding-top: 40%;
+  }
+  .modal-content {
+    width: 90%;
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(255,255,255,0.7);
+    -moz-box-shadow: 0px 0px 12px 1px rgba(255,255,255,0.7);
+    box-shadow: 0px 0px 12px 1px rgba(255,255,255,0.7);
+  }
+  #show_word {
+    font-size: 48px;
+  }
+  
+}

@@ -35,7 +35,6 @@ function getData(){
 }
 // create rows
 function createRows(wordArray) {
-    console.log(wordArray.length)
     wordArray.forEach((word, index) => {
         
         var colorClass = ""
@@ -113,7 +112,6 @@ $('#container').on('click', '.click_tr', function(){
 $('body').on('click', '#count', function(){
     modal.style.display = "block";
     var content = '<iframe id="gif" src="https://giphy.com/embed/RS581ZSvMveaQ" width="80%" frameBorder="0" class="giphy-embed" ></iframe>'
-    console.log(content)
     $("#show_word").html(content)
 })
 // mix trigger for word list
