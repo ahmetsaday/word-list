@@ -1,5 +1,6 @@
 //-- Global Variables --//
 var wordArray = []
+var pageArray = []
 var totalPageNumber = 0
 
 //-- Setup --//
@@ -27,14 +28,20 @@ function getData(){
             return a.id - b.id
         }).reverse()
 
-        // call related methoeds
+        pageArray = wordArray.slice(0,100)
+
+        // call related methods
         createPagination(totalPageNumber)
-        createRows(wordArray.slice(0,100))
+        createRows(pageArray)
         setTotalWordsCount(wordArray.length)
     });
 }
 // create rows
 function createRows(wordArray) {
+    
+    // setup current page array
+    pageArray = wordArray
+
     wordArray.forEach((word, index) => {
         
         var colorClass = ""
@@ -44,7 +51,7 @@ function createRows(wordArray) {
             colorClass = 'second-color'
         }
     
-        var voiceButton =    '<div class="voice-button" onclick="getVoice('+index+');"><i class="far fa-play-circle"></i></div>'
+        var voiceButton =    '<div class="voice-button" onclick="getVoice('+ index+');"><i class="far fa-play-circle"></i></div>'
 
         var question_icon = '<i class="far fa-question-circle fa-2x"></i>'
         var info_icon = '<i class="fas fa-info-circle fa-2x"></i>'
@@ -66,8 +73,6 @@ function createRows(wordArray) {
 }
 // create pagination
 function createPagination(totalPageNumber){
-    
-
     for (i = 1; i <= totalPageNumber; i++) {
         var aTag = '<a class="page-area-ul-li-a">'+ i +'</a>'
         var liTag = ''
@@ -79,16 +84,12 @@ function createPagination(totalPageNumber){
 
         $(".page-area-ul").append(liTag)
     }
-
-
-    
 }
 // The number of words in wordList
 function setTotalWordsCount(length){
     var htmlItem = '<span style="font-size: 25px;" >'+ length +' </span>words'
     $("#count").html(htmlItem)
 }
-
 
 //-- Trigger Funtions --//
 
@@ -98,7 +99,7 @@ $('#container').on('click', '.click_description', function(){
     var currentId = getOrderNumber(itemId)
 
     modal.style.display = "block";
-    $("#show_word").text(wordArray[currentId].description)
+    $("#show_word").text(pageArray[currentId].description)
 })
 // Turkish description modal trigger 
 $('#container').on('click', '.click_tr', function(){
@@ -106,7 +107,7 @@ $('#container').on('click', '.click_tr', function(){
     var currentId = getOrderNumber(itemId)
 
     modal.style.display = "block";
-    $("#show_word").text(wordArray[currentId].meaning)
+    $("#show_word").text(pageArray[currentId].meaning)
 })
 // gif
 $('body').on('click', '#count', function(){
@@ -132,10 +133,6 @@ $("#game").click(function(){
 $("#swipe").click(function(){
     window.location = 'swipe-game.html';
 })
-
-
-
-
 // page trigger
 $('body').on('click', '.page-item', function(){
     var itemId = this.id
@@ -153,9 +150,6 @@ $('body').on('click', '.page-item', function(){
     $("#container").empty();
     createRows(currentWordArray)
 })
-
-
-
 
 //-- Helper Functions --//
 
@@ -179,7 +173,7 @@ function shuffle(a) {
 }
 // get clicked word
 function getVoice(index){
-    var tappedWord = wordArray[index].word
+    var tappedWord = pageArray[index].word
 
     responsiveVoice.setDefaultVoice("US English Male");
     responsiveVoice.speak(tappedWord)
