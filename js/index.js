@@ -128,6 +128,12 @@ $("#mix").click(function(){
 })
 // mix trigger for mobile word list
 $("#menu-mix").click(function(){
+
+    // active page style
+    $(".page-area-ul-li").not(this).removeClass("page-active");
+    $('.page-area-ul-li:first-child').addClass('page-active');
+
+    // create rows by mixed array
     $("#container").empty();
     createRows(shuffle(wordArray))
 })
