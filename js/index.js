@@ -1,5 +1,5 @@
 //-- Global Variables --//
-var wordArray = []
+var totalWordArray = []
 var pageArray = []
 var totalPageNumber = 0
 
@@ -12,35 +12,28 @@ function setup(){
 
 // Get Data from Firestore
 function getData(){
-    db.collection("words").get().then((querySnapshot) => {
+    db.collection("words").orderBy("id", "desc").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // console.log(`${doc.id} => ${doc.data()}`);
-            wordArray.push(doc.data())
+            totalWordArray.push(doc.data())
         });
     
         // Calculate the total page number
-        if (wordArray.length > 0) {
-            totalPageNumber = Math.ceil(wordArray.length / 100)
+        if (totalWordArray.length > 0) {
+            totalPageNumber = Math.ceil(totalWordArray.length / 100)
         }
-    
-        // adjust wordArray
-        wordArray.sort(function(a,b){
-            return a.id - b.id
-        }).reverse()
 
-        pageArray = wordArray.slice(0,100)
+        pageArray = totalWordArray.slice(0,100)
 
         // call related methods
         createPagination(totalPageNumber)
         createRows(pageArray)
-        setTotalWordsCount(wordArray.length)
+        setTotalWordsCount(totalWordArray.length)
     });
 }
 // create rows
 function createRows(wordArray) {
-    
-    // setup current page array
-    pageArray = wordArray
+    console.log(wordArray)
 
     wordArray.forEach((word, index) => {
         
@@ -124,7 +117,9 @@ $("#mix").click(function(){
 
     // create rows by mixed array
     $("#container").empty();
-    createRows(shuffle(wordArray))
+
+    shuffle(totalWordArray)
+    createRows(totalWordArray.slice(0,100))
 })
 // mix trigger for mobile word list
 $("#menu-mix").click(function(){
@@ -135,7 +130,8 @@ $("#menu-mix").click(function(){
 
     // create rows by mixed array
     $("#container").empty();
-    createRows(shuffle(wordArray))
+    shuffle(totalWordArray)
+    createRows(totalWordArray.slice(0,100))
 })
 // gamification trigger
 $("#game").click(function(){
@@ -149,15 +145,15 @@ $("#swipe").click(function(){
 $('body').on('click', '.page-item', function(){
     var itemId = this.id
     var currentId = getOrderNumber(itemId)
+    var currentWordArray = []
 
     $(this).addClass("page-active");
     $(".page-area-ul-li").not(this).removeClass("page-active");
 
-    var currentWordArray = wordArray
     if(currentId == 1){
-        currentWordArray = wordArray.slice(0,100)
+        currentWordArray = totalWordArray.slice(0,100)
     } else {
-        currentWordArray = wordArray.slice((currentId-1)*100, currentId * 100)
+        currentWordArray = totalWordArray.slice((currentId-1)*100, currentId * 100)
     }
     $("#container").empty();
     createRows(currentWordArray)
