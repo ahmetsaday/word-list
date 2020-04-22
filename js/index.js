@@ -33,8 +33,11 @@ function getData(){
 }
 // create rows
 function createRows(wordArray) {
-    console.log(wordArray)
+    
+    //adjust pageArray for voice, description, meaning
+    pageArray = wordArray
 
+    // Create rows
     wordArray.forEach((word, index) => {
         
         var colorClass = ""
