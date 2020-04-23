@@ -109,7 +109,7 @@ a, u {
 }
 #admin {
     position: fixed;
-    right: 100px;
+    left: 100px;
     bottom: 30px;
     cursor: pointer;
 }
@@ -122,10 +122,25 @@ a, u {
 #admin i {
     margin: 0px;
 }
+
+
+#top-button{
+    position: fixed;
+    right: 100px;
+    bottom: 30px;
+    cursor: pointer;
+}
+#top-button a:hover {
+    color: #718093;
+}
+
+
+
+
+
 #gif {
     pointer-events:none;
 }
-
 .voice-button{
     width: 5%;
     float: left;
@@ -187,6 +202,16 @@ a, u {
     #admin {
         display: none;
     }
+
+
+    #top-button{
+        right: 140px;
+        bottom: 7%;
+    }
+    #top-button a {
+        font-size: 72px;
+    }
+
     
   }
   
