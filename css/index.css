@@ -202,11 +202,10 @@ a, u {
     #admin {
         display: none;
     }
-
-
     #top-button{
         right: 140px;
-        bottom: 7%;
+        bottom: 6%;
+        z-index: 2;
     }
     #top-button a {
         font-size: 72px;
