@@ -44,6 +44,13 @@ a, u {
 .page-area-ul-li:hover a{
     color: teal;
 }
+#page-mix {
+    right: 27%;
+    cursor: pointer;
+    float: right;
+    position: absolute;
+    top: 193px;
+}
 #container {
     width: 50%;
     display: flow-root;
@@ -122,8 +129,6 @@ a, u {
 #admin i {
     margin: 0px;
 }
-
-
 #top-button{
     position: fixed;
     right: 100px;
@@ -133,11 +138,6 @@ a, u {
 #top-button a:hover {
     color: #718093;
 }
-
-
-
-
-
 #gif {
     pointer-events:none;
 }
@@ -165,6 +165,15 @@ a, u {
         padding-right: 3%;
         margin-bottom: 2%;
     }
+
+
+    #page-mix {
+        right: 4%;
+        font-size: 25px;
+    }
+
+
+
     #container {
         width: 100%;
     }
