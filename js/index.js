@@ -162,6 +162,20 @@ $('body').on('click', '.page-item', function(){
     createRows(currentWordArray)
 })
 
+
+// mix trigger for mobile word list
+$("#page-mix").click(function(){
+
+    
+    shuffle(pageArray)
+
+    // create rows by mixed array
+    $("#container").empty();
+    createRows(pageArray)
+    
+})
+
+
 //-- Helper Functions --//
 
 // order number method
