@@ -94,7 +94,7 @@ $('#container').on('click', '.click_description', function(){
     var itemId = this.id
     var currentId = getOrderNumber(itemId)
 
-    modal.style.display = "block";
+    wordModal.style.display = "block";
     $("#show_word").text(pageArray[currentId].description)
 })
 // Turkish description modal trigger 
@@ -102,14 +102,14 @@ $('#container').on('click', '.click_tr', function(){
     var itemId = this.id
     var currentId = getOrderNumber(itemId)
 
-    modal.style.display = "block";
+    wordModal.style.display = "block";
     $("#show_word").text(pageArray[currentId].meaning)
 })
-// gif
+// rank
 $('body').on('click', '#count', function(){
-    modal.style.display = "block";
-    var content = '<iframe id="gif" src="https://giphy.com/embed/RS581ZSvMveaQ" width="80%" frameBorder="0" class="giphy-embed" ></iframe>'
-    $("#show_word").html(content)
+    rankModal.style.display = "block";
+
+    $("#ranks").html(createRank(totalWordArray.length))
 })
 // mix trigger for word list
 $("#mix").click(function(){
@@ -175,6 +175,15 @@ $("#page-mix").click(function(){
     
 })
 
+ // When the user clicks anywhere outside of the modal, close it
+ window.onclick = function(event) {
+    if(event.target == wordModal){
+       wordModal.style.display = "none";
+    }
+    if(event.target == this.rankModal){
+       rankModal.style.display = "none"
+   }
+}
 
 //-- Helper Functions --//
 

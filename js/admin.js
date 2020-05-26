@@ -44,6 +44,29 @@ $("#logout").click(function(){
     });
 })
 
+var totalWordArray = []
+var exportName = "backup"
+
+function getData(){
+    db.collection("words").orderBy("id", "desc").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            totalWordArray.push(doc.data())
+        })
+    }).then(() => {
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(totalWordArray));
+            var downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href",     dataStr);
+            downloadAnchorNode.setAttribute("download", exportName + ".json");
+            document.body.appendChild(downloadAnchorNode); // required for firefox
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+    );
+}
+
+$("#download").click(function(){
+    getData()
+})
 
 
 // Don't use 

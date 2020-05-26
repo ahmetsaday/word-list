@@ -138,8 +138,9 @@ a, u {
 #top-button a:hover {
     color: #718093;
 }
-#gif {
+#rank {
     pointer-events:none;
+    width: 40%;
 }
 .voice-button{
     width: 5%;
