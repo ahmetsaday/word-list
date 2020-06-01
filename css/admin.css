@@ -99,3 +99,13 @@ h2 {
 .submit:hover {
     color: #95a5a6;
 }
+
+#backup {
+    position: fixed;
+    right: 100px;
+    bottom: 30px;
+    cursor: pointer;
+}
+#backup:hover{
+    color: #718093;
+}

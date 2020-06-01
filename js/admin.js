@@ -112,7 +112,6 @@ $("#logout").click(function(){
 
 // BackUp Data
 var totalWordArray = []
-var exportName = "backup"
 
 function getData(){
     db.collection("words").orderBy("id", "desc").get().then((querySnapshot) => {
@@ -123,7 +122,7 @@ function getData(){
             var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(totalWordArray));
             var downloadAnchorNode = document.createElement('a');
             downloadAnchorNode.setAttribute("href",     dataStr);
-            downloadAnchorNode.setAttribute("download", exportName + ".json");
+            downloadAnchorNode.setAttribute("download", "word-list/backup/" + new Date().getTime() + ".json");
             document.body.appendChild(downloadAnchorNode); // required for firefox
             downloadAnchorNode.click();
             downloadAnchorNode.remove();
@@ -132,7 +131,7 @@ function getData(){
 }
 
 // backup to the words
-$("#download").click(function(){
+$("#backup").click(function(){
     getData()
 })
 
