@@ -22,12 +22,12 @@ $("#addNewWordForm").submit(function(e){
     .then(function(docRef) {
         //console.log("Document written with ID: ", docRef.id);
         $('input').val("");
-        $('#submit').val("Add");
+        $('.submit').val("Add");
         $(".add-info").html("The word has created successfully.")
     })
     .catch(function(error) {
         $('input').val("");
-        $('#submit').val("Add");
+        $('.submit').val("Add");
         $(".add-info").html(error)
     });
 });

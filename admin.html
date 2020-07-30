@@ -26,8 +26,7 @@
         https://firebase.google.com/docs/web/setup#available-libraries -->
 
         <script src="js/init-firebase.js"></script>
-
-
+        
         <!-- App Content -->
 
         <!-- total count of words -->
@@ -47,87 +46,74 @@
 
 
 
-        <div id="container">
-            <div class="form-area">
-                <form id="addNewWordForm" autocomplete="off">
-                    <div class="field-group">
-                        <h2>New Word</h2>
-                    </div>
-                    <div class="field-group">
-                        <input id="word-input" type="text" placeholder="word..." />
-                    </div>
-                    <div class="field-group">
-                        <input id="description-input" type="text" placeholder="description..."/>
-                    </div>
-                    <div class="field-group">
-                        <input id="example-input" type="text" placeholder="example..."/>
-                    </div>
-                    <div class="field-group">
-                        <input id="meaning-input" type="text" placeholder="meaining..."/>
-                    </div>
-                    <div class="">
-                        <input class="submit" type="submit" value="Add" style="margin-bottom: 10px;"/>
-                    </div>
-                    <span class="add-info" ></span>
-                </form>
-            </div>
-
-
-
-
-<br>
-
-<!-- search -->
-<div id="search-area" class="form-area">
-    <form id="searchWordForm" autocomplete="off">
-        <div class="field-group">
-            <h2>Search Word</h2>
-        </div>
-        <div class="field-group">
-            <input id="search-input" type="text" placeholder="Search the word that want to update" />
+    <div id="container">
+        <div class="form-area">
+            <form id="addNewWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>New Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="word-input" type="text" placeholder="word..." />
+                </div>
+                <div class="field-group">
+                    <input id="description-input" type="text" placeholder="description..."/>
+                </div>
+                <div class="field-group">
+                    <input id="example-input" type="text" placeholder="example..."/>
+                </div>
+                <div class="field-group">
+                    <input id="meaning-input" type="text" placeholder="meaining..."/>
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Add" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="add-info" ></span>
+            </form>
         </div>
         
-        <div class="">
-            <input class="submit" type="submit" value="Search" style="margin-bottom: 10px;"/>
+        <br>
+
+        <!-- search -->
+        <div id="search-area" class="form-area">
+            <form id="searchWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>Search Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="search-input" type="text" placeholder="Search the word that want to update" />
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Search" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="search-info" ></span>
+            </form>
         </div>
-        <span class="search-info" ></span>
-    </form>
-</div>
 
-<!-- update -->
-            <div id="update-area" class="form-area" style="margin-bottom: 20%;">
-                <form id="updateWordForm" autocomplete="off">
-                    <div class="field-group">
-                        <h2>Update Word</h2>
-                    </div>
-                    <div class="field-group">
-                        <input id="update-word-input" type="text" placeholder="word..." />
-                    </div>
-                    <div class="field-group">
-                        <input id="update-description-input" type="text" placeholder="description..."/>
-                    </div>
-                    <div class="field-group">
-                        <input id="update-example-input" type="text" placeholder="example..."/>
-                    </div>
-                    <div class="field-group">
-                        <input id="update-meaning-input" type="text" placeholder="meaining..."/>
-                    </div>
-                    <div class="">
-                        <input class="submit" type="submit" value="Update" style="margin-bottom: 10px;"/>
-                    </div>
-                    <span class="update-info" ></span>
-                </form>
-            </div>
-
-
-
-
-
-
-
-
-
+        <!-- update -->
+        <div id="update-area" class="form-area" style="margin-bottom: 20%;">
+            <form id="updateWordForm" autocomplete="off">
+                <div class="field-group">
+                    <h2>Update Word</h2>
+                </div>
+                <div class="field-group">
+                    <input id="update-word-input" type="text" placeholder="word..." />
+                </div>
+                <div class="field-group">
+                    <input id="update-description-input" type="text" placeholder="description..."/>
+                </div>
+                <div class="field-group">
+                    <input id="update-example-input" type="text" placeholder="example..."/>
+                </div>
+                <div class="field-group">
+                    <input id="update-meaning-input" type="text" placeholder="meaining..."/>
+                </div>
+                <div class="">
+                    <input class="submit" type="submit" value="Update" style="margin-bottom: 10px;"/>
+                </div>
+                <span class="update-info" ></span>
+            </form>
         </div>
+    </div>
         <script src="js/admin.js"></script>
     </body>
 </html>
