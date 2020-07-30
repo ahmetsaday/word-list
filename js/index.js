@@ -56,7 +56,7 @@ function createRows(wordArray) {
         var description = '<div id="description'+index+'" class="description click_description"> '+ info_icon +'  </div>'
 
         var en_example = '<div class="en-example"><label>'+ word.example +'</label></div>'
-        var en_word = '<div class="en-word"><label>'+word.word+'</label> '+ voiceButton +'  </div>'
+        var en_word = '<div class="en-word"><label id="'+word.id+'">'+word.word+'</label> '+ voiceButton +'  </div>'
 
         var left_area = '<div class="left-area '+ colorClass +' "> '+ en_word + en_example +' </div>'
         var right_area = '<div class="right-area"> ' + description + tr_word + ' </div>'
@@ -105,6 +105,28 @@ $('#container').on('click', '.click_tr', function(){
     wordModal.style.display = "block";
     $("#show_word").text(pageArray[currentId].meaning)
 })
+
+
+
+
+$('#container').on('click', '.en-word label', function(){
+    var itemId = this.id
+    alert(itemId)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // rank
 $('body').on('click', '#count', function(){
     rankModal.style.display = "block";
