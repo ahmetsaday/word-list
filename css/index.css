@@ -92,7 +92,7 @@ a, u {
 }
 #game {
     position: fixed;
-    right: 100px;
+    right: 96px;
     top: 100px;
     cursor: pointer;
 }
@@ -102,16 +102,16 @@ a, u {
 #game i {
     margin: 0px;
 }
-#swipe {
+#focus {
     position: fixed;
-    right: 100px;
+    right: 104px;
     top: 180px;
     cursor: pointer;
 }
-#swipe:hover{
+#focus:hover{
     color: #718093;
 }
-#swipe i {
+#focus i {
     margin: 0px;
 }
 #admin {
@@ -201,7 +201,7 @@ a, u {
     #game {
         display: none;
     }
-    #swipe {
+    #focus {
         display: none;
     }
     #admin {

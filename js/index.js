@@ -163,8 +163,8 @@ $("#game").click(function(){
     window.location = 'game.html';
 })
 // swipe game trigger
-$("#swipe").click(function(){
-    window.location = 'swipe-game.html';
+$("#focus").click(function(){
+    window.location = 'focus.html';
 })
 // page trigger
 $('body').on('click', '.page-item', function(){
