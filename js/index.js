@@ -15,7 +15,9 @@ function getData(){
     db.collection("words").orderBy("id", "desc").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // console.log(`${doc.id} => ${doc.data()}`);
-            totalWordArray.push(doc.data())
+            var totalWordArrayItem = doc.data()
+            totalWordArrayItem.docId = doc.id
+            totalWordArray.push(totalWordArrayItem)
         });
     
         // Calculate the total page number
@@ -108,14 +110,20 @@ $('#container').on('click', '.click_tr', function(){
 
 
 
-
 $('#container').on('click', '.en-word label', function(){
     var itemId = this.id
-    alert(itemId)
+    globalFocusItemId = this.id
+
+    focusModal.style.display = "block"
+
+    // show up modal
+    $("#form-area").html(createFocusForm(itemId))
 })
 
 
-
+$('body').on('click', '#focus-toggle', function(){
+    focusListToggle()
+})
 
 
 
@@ -204,7 +212,10 @@ $("#page-mix").click(function(){
     }
     if(event.target == this.rankModal){
        rankModal.style.display = "none"
-   }
+    }
+    if(event.target == this.focusModal){
+        focusModal.style.display = "none"
+    }
 }
 
 //-- Helper Functions --//

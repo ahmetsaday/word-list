@@ -61,6 +61,7 @@ a, u {
 .row{}
 .left-area {width: 90%; float: left; min-height: 130px;}
 .en-word {font-size: 35px; margin-top: 5%;}
+.en-word label {cursor: pointer;}
 .en-example {font-size: 18px;}
 .right-area {width: 10%; float: right;}
 .description {min-height: 65px; background-color: #192a56; cursor: pointer;}
